@@ -6,7 +6,7 @@ var game = new Phaser.Game(WINDOW_WIDTH, WINDOW_HEIGHT, Phaser.AUTO, '', {preloa
 
 var WORLD_SIZE = {w:1000,h:800};
 
-
+var crate = null;
 var water_tiles = [];
 var bullet_array = [];
 
@@ -99,9 +99,12 @@ function preload(){
     
     game.load.image('bullet', ASSET_URL + 'bullet1.png');
     game.load.image('grass', ASSET_URL + 'grass.png');
+    game.load.image('crate', ASSET_URL + 'crate.png');
 }
 
 function create(){
+
+    
     // Create grass tiles 
     for(var i=0;i<=WORLD_SIZE.w/64+1;i++){
         for(var j=0;j<=WORLD_SIZE.h/64+1;j++){
@@ -113,7 +116,10 @@ function create(){
     }
 
     game.stage.disableVisibilityChange = true;
-
+    
+    // create junk 
+    game.add.sprite(150, 400, 'crate')
+    
     // Create player
     var player_ship_type = String(1);
     player.sprite = game.add.sprite(Math.random() * WORLD_SIZE.w/2 + WORLD_SIZE.w/2,Math.random() * WORLD_SIZE.h/2 + WORLD_SIZE.h/2,'player'+player_ship_type+'_1');
