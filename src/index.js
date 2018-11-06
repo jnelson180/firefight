@@ -21,7 +21,7 @@ var WORLD_SIZE = {
 
 // Declare our objects globally and initialize them in the 'create' function
 var crate = null;
-var water_tiles = [];
+var land_tiles = [];
 var bullet_array = [];
 var socket; 
 var other_players = {};
@@ -114,27 +114,29 @@ function preload(){
 
     game.load.image('player', ASSET_URL + 'player_handgun.png');    
     game.load.image('bullet', ASSET_URL + 'bullet1.png');
-    game.load.image('grass', ASSET_URL + 'grass.png');
+    game.load.image('soil', ASSET_URL + 'soil.png');
     game.load.image('crate', ASSET_URL + 'crate.png');
+    game.load.image('tree', ASSET_URL + 'tree.png');
 }
 
 function create(){
-
-    
-    // Create grass tiles 
+    // Create ground tiles 
     for(var i = 0; i <= WORLD_SIZE.w / 64 + 1; i++) {
         for(var j = 0; j <= WORLD_SIZE.h / 64 + 1; j++) {
-            var tile_sprite = game.add.sprite(i * 64, j * 64, 'grass');
+            var tile_sprite = game.add.sprite(i * 64, j * 64, 'soil');
             tile_sprite.anchor.setTo(0.5, 0.5);
             tile_sprite.alpha = 0.5;
-            water_tiles.push(tile_sprite);
+            land_tiles.push(tile_sprite);
         }
     }
 
     game.stage.disableVisibilityChange = true;
     
-    // create junk 
+    // create landscape features / junk
     game.add.sprite(150, 400, 'crate');
+    game.add.sprite(80, 217, 'tree');
+    game.add.sprite(355, 10, 'tree');
+    game.add.sprite(600, 450, 'tree');
     
     // Create player
     player.sprite = game.add.sprite(
