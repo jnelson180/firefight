@@ -116,7 +116,9 @@ function preload(){
     game.load.image('bullet', ASSET_URL + 'bullet1.png');
     game.load.image('soil', ASSET_URL + 'soil.png');
     game.load.image('crate', ASSET_URL + 'crate.png');
-    game.load.image('tree', ASSET_URL + 'tree.png');
+    game.load.image('brown_tree', ASSET_URL + 'brown_tree.png');
+    game.load.image('green_tree', ASSET_URL + 'green_tree.png');
+    game.load.image('shrub', ASSET_URL + 'shrub.png');
 }
 
 function create(){
@@ -133,10 +135,12 @@ function create(){
     game.stage.disableVisibilityChange = true;
     
     // create landscape features / junk
-    game.add.sprite(150, 400, 'crate');
-    game.add.sprite(80, 217, 'tree');
-    game.add.sprite(355, 10, 'tree');
-    game.add.sprite(600, 450, 'tree');
+    game.add.sprite(100, 700, 'crate');
+    game.add.sprite(80, 217, 'brown_tree');
+    game.add.sprite(355, 10, 'brown_tree');
+    game.add.sprite(600, 450, 'green_tree');
+    game.add.sprite(200, 100, 'shrub');
+    game.add.sprite(700, 300, 'shrub');
     
     // Create player
     player.sprite = game.add.sprite(
